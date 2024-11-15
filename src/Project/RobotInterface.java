@@ -21,7 +21,8 @@ public class RobotInterface {
         do {
             System.out.print("Enter (A)dd Robot, get (I)nformation,"
                     + "\n(D)isplay all robots, (M)ove all robots,"
-                    + "\n(S)ave arena, (L)oad arena, or e(X)it > "); 
+                    + "\n(S)ave arena, (L)oad arena, (N)ew file," 
+                    + "\nor e(X)it > "); 
             /*
             Outputs a message where the user can chose to add a robot, get the information of the arena, display...
             ...all the robots, move all the robots, save the arena, load the arena or exit.
@@ -71,6 +72,9 @@ public class RobotInterface {
                         myArena.showRobots(); //Shows the robots in the current arena
                     }
                     break;
+                case 'N':
+                case 'n':
+                	fileHandler.createNewArena();
                 case 'x':
                 //This is if 'x' is pressed
                     ch = 'X'; //Sets ch to X

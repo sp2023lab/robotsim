@@ -18,15 +18,19 @@ public class RobotArena {
 	public int xSize() {
 		return xSize; //Returns the xSize for the arena
 	}
+	
 	public int ySize() { 
 		return ySize; //Returns the ySize for the arena
 	}
+	
 	public int robotCounter() { 
 		return robotCounter; //Returns the number of robots
 	}
+	
 	public ArrayList<Robot> getRobots() {
 		return robots; //Returns the array of robots
 	}
+	
 	public boolean canMoveHere(int x, int y) {
 		if (x <= 0 || y <= 0 || y >= ySize - 1 || x >= xSize - 1) { //Checks if the robot is out of range
 			return false; //Returns false if out of range
@@ -46,9 +50,9 @@ public class RobotArena {
 		}
 		else {
 			Random rand = new Random(); //We need a random generator
-	        int xPos = rand.nextInt(xSize - 2) + 1; //Random x position for robot, ensuring it is within the board for x size
-	        int yPos = rand.nextInt(ySize - 2) + 1; //Random y position for robot, ensuring it is within the board for y size
-			String ID = "R" + (robotCounter); //ID is R with a robotCounter
+	        int xPos = rand.nextInt(xSize() - 2) + 1; //Random x position for robot, ensuring it is within the board for x size
+	        int yPos = rand.nextInt(ySize() - 2) + 1; //Random y position for robot, ensuring it is within the board for y size
+			String ID = "R" + (robotCounter()); //ID is R with a robotCounter
 			Direction direction = Direction.randomDirection(); //Random direction for the robot
 			Robot newRobot = new Robot(xPos, yPos, ID, direction); //Creates a new robot
 			robots.add(newRobot); //Adds a new robot to the arena
@@ -58,7 +62,7 @@ public class RobotArena {
 	}
 	
 	public void moveAllRobots() { 
-		ConsoleCanvas canvas = new ConsoleCanvas(xSize, ySize); //Creates a canvas using the x and y sizes
+		ConsoleCanvas canvas = new ConsoleCanvas(xSize(), ySize()); //Creates a canvas using the x and y sizes
 		for (Robot robot : robots) { //Parses through the robots
 			if (robot != null) { //Checks if the robot field is not null
 				robot.tryToMove(this); //Moves the robot if not null
@@ -68,13 +72,19 @@ public class RobotArena {
 	}
 	
 	public void showRobots() { 
-		ConsoleCanvas canvas = new ConsoleCanvas(xSize, ySize); //Creates a canvas using the x and y sizes
+		ConsoleCanvas canvas = new ConsoleCanvas(xSize(), ySize()); //Creates a canvas using the x and y sizes
 		for (Robot robot : robots) { //Parses through the robots
 			if (robot != null) { //Checks if the robot field is not null
 				robot.displayRobot(canvas);	//Displays the robot on the canvas
 			}
 		}
 		canvas.showIt(); //Displays the canvas with the robots
+	}
+	
+	public void resetArray() {
+	    robots.clear(); //Clears all robots from the list
+	    robotCounter = 0; //Resets the robot counter to 0
+	    System.out.println("The robot list has been reset!");
 	}
 	
 	public String toString() { 
