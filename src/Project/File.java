@@ -14,11 +14,11 @@ public class File {
         this.myArena = arena; //arena
     }
 
-    public void createNewArena() {
-        myArena = new RobotArena(40, 10); //Creates a new arena with a width of 40 and a height of 10
-        myArena.resetArray(); //Reset RobotCounter
-        System.out.println("New arena created - everything has been reset!"); //Outputs a message that there is a new arena
+    public void createNewArena(int width, int height) {
+        myArena = new RobotArena(width, height); //Create a new arena with new dimensions
+        myArena.resetArray(); //Reset robots and counter
     }
+
 
     public void saveArena(String filename) {
         try (FileWriter writer = new FileWriter(filename, true)) {

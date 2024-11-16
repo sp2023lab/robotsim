@@ -19,7 +19,7 @@ public class ConsoleCanvas {
                     array[i][j] = '#'; //Fill border with #
                 } 
                 else if (j == 0 || j == xSize - 1) { //Left or right border
-                    array[i][j] = '#'; //Fill border with with #
+                    array[i][j] = '#'; //Fill border with #
                 } 
                 else {
                     array[i][j] = ' '; //Inside the canvas

@@ -74,7 +74,14 @@ public class RobotInterface {
                     break;
                 case 'N':
                 case 'n':
-                	fileHandler.createNewArena();
+                    System.out.println("Enter new arena width > ");
+                    int width = s.nextInt(); //Get width input
+                    System.out.println("Enter new arena height > ");
+                    int height = s.nextInt(); //Get height input
+                    fileHandler.createNewArena(width, height); //Create a new arena and reset
+                    myArena = new RobotArena(width, height); //Ensure myArena is updated with the new instance
+                    System.out.println("New arena created - everything has been reset!");
+                    break;
                 case 'x':
                 //This is if 'x' is pressed
                     ch = 'X'; //Sets ch to X

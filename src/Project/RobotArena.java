@@ -80,12 +80,14 @@ public class RobotArena {
 		}
 		canvas.showIt(); //Displays the canvas with the robots
 	}
-	
+		
 	public void resetArray() {
-	    robots.clear(); //Clears all robots from the list
-	    robotCounter = 0; //Resets the robot counter to 0
-	    System.out.println("The robot list has been reset!");
+	    robots.clear(); //Clear all robots from the list
+	    robotCounter = 0; //Reset the robot counter to 0
+	    ConsoleCanvas canvas = new ConsoleCanvas(xSize(), ySize()); //Create a fresh canvas to clear the display
+	    canvas.showIt(); //Display an empty canvas
 	}
+
 	
 	public String toString() { 
 		return "The coordinates are: (" +xSize()+ "," +ySize()+"). The robot is in: "+robotCounter()+" of the 10 available robots.";
