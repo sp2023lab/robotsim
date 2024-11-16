@@ -6,6 +6,7 @@ public class ConsoleCanvas {
     char[][] array; //array is a 2D array
     private String studentID = "32010160"; //studentID is 32010160
 
+    
     ConsoleCanvas(int xSize, int ySize) {
         this.xSize = xSize; //Width
         this.ySize = ySize; //Height
@@ -26,7 +27,7 @@ public class ConsoleCanvas {
                 }
             }
         }
-
+        
         // Center the student ID on the top border
         int idStartPos = (xSize - studentID.length()) / 2; //Make sure the starting position is correct by 
         for (int i = 0; i < studentID.length(); i++) { //Parses through each character of the studentID
@@ -38,6 +39,7 @@ public class ConsoleCanvas {
         toString(); //Outputs a message
     }
     
+    
     public void showIt() { //Display the canvas
         for (int i = 0; i < ySize; i++) { //Loop through rows (height)
             for (int j = 0; j < xSize; j++) { //Loop through columns (width)
@@ -47,7 +49,9 @@ public class ConsoleCanvas {
         }
     }
     
+    
     public String toString() { // Provide size information
         return "The size is: " + xSize + " by " + ySize + "."; //Returns the x and y size of the canvas
     }
+    
 }
