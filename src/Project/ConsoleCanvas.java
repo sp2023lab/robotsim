@@ -6,25 +6,28 @@ public class ConsoleCanvas {
     char[][] array; //array is a 2D array
     private String studentID = "32010160"; //studentID is 32010160
 
+    
     ConsoleCanvas(int xSize, int ySize) {
         this.xSize = xSize; //Width
         this.ySize = ySize; //Height
         this.array = new char[ySize][xSize]; //Initialize array as ySize (rows) by xSize (columns)
+        
         //Initialize the canvas by filling in the array with spaces
-        for (int i = 0; i < ySize; i++) { //Loop through the rows (height)
-            for (int j = 0; j < xSize; j++) { //Loop through the columns (width)
-                array[i][j] = ' '; //Put [space] for each item when initializing the canvas
+        for (int i = 0; i < ySize; i++) { //Loop through rows
+            for (int j = 0; j < xSize; j++) { //Loop through columns
+                //Set borders or fill with spaces
+                if (i == 0 || i == ySize - 1) { //Top or bottom border
+                    array[i][j] = '#'; //Fill border with #
+                } 
+                else if (j == 0 || j == xSize - 1) { //Left or right border
+                    array[i][j] = '#'; //Fill border with #
+                } 
+                else {
+                    array[i][j] = ' '; //Inside the canvas
+                }
             }
         }
-        //Set borders
-        for (int j = 0; j < xSize; j++) { //Loop through the width
-            array[0][j] = '#'; // Top border
-            array[ySize - 1][j] = '#'; //Bottom border
-        }
-        for (int i = 0; i < ySize; i++) { //Loop through the height
-            array[i][0] = '#'; // Left border
-            array[i][xSize - 1] = '#'; //Right border
-        }
+        
         // Center the student ID on the top border
         int idStartPos = (xSize - studentID.length()) / 2; //Make sure the starting position is correct by 
         for (int i = 0; i < studentID.length(); i++) { //Parses through each character of the studentID
@@ -36,6 +39,7 @@ public class ConsoleCanvas {
         toString(); //Outputs a message
     }
     
+    
     public void showIt() { //Display the canvas
         for (int i = 0; i < ySize; i++) { //Loop through rows (height)
             for (int j = 0; j < xSize; j++) { //Loop through columns (width)
@@ -45,7 +49,9 @@ public class ConsoleCanvas {
         }
     }
     
+    
     public String toString() { // Provide size information
         return "The size is: " + xSize + " by " + ySize + "."; //Returns the x and y size of the canvas
     }
+    
 }
