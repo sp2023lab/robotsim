@@ -27,6 +27,9 @@ public class File {
         try (FileWriter writer = new FileWriter(filename, true)) {
         //Initializes FileWriter in append mode which writes to 'filename' and then automatically closes it after
             List<Robot> robots = myArena.getRobots(); //Gets all of the robots from the current arena and puts it in the robots list
+            
+            //Code here and fix the save arena
+            
             writer.write("\nArena size is: " + myArena.xSize() + " by " + myArena.ySize() + ".\n"); //Writes to the file of the arena size
         
             if (robots.isEmpty()) { //Checks if the robot list is empty
@@ -34,8 +37,9 @@ public class File {
             } 
             
             else {
-            
+            	
             	for (Robot robot : robots) { //Parses through all the robots
+            		System.out.print("\n"+robot.toString()+".\n");
                     writer.write("Details of the robot: ID " + robot.ID() + ", with coordinates (" + robot.xPos() + "," + robot.yPos() + "), with direction facing " + robot.direction() + ".\n");
                     //Writes the details of the robot by its ID, x and y position and direction
                 }
@@ -99,6 +103,7 @@ public class File {
                                 Direction direction = Direction.valueOf(robotParts[13].replace(".", "")); //Gets the direction
                                 Robot robot = new Robot(xPos, yPos, id, direction); //Sets up the robot
                                 myArena.getRobots().add(robot); //Adds the robot from the file to the arena
+                                myArena.incrementRobotCounter(); //Increments the robotCounter
                             } 
                             
                             else {

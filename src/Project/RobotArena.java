@@ -32,6 +32,16 @@ public class RobotArena {
 	}
 	
 	
+	public void incrementRobotCounter() {
+		robotCounter++; //Increments the robotCounter
+	}
+	
+	
+	public void setRobotCounter(int count) {
+		robotCounter = count; //Sets the robotCounter to a new value (using count)
+	}
+	
+	
 	public ArrayList<Robot> getRobots() {
 		return robots; //Returns the array of robots
 	}
@@ -101,15 +111,31 @@ public class RobotArena {
 	
 	public void resetArray() {
 	    robots.clear(); //Clear all robots from the list
-	    robotCounter = 0; //Reset the robot counter to 0
+	    setRobotCounter(0); //Reset the robot counter to 0
 	    ConsoleCanvas canvas = new ConsoleCanvas(xSize(), ySize()); //Create a fresh canvas to clear the display
 	    canvas.showIt(); //Display an empty canvas
 	}
 
 	
-	public String toString() { 
-		return "The size of the arena is: " +xSize()+ " by " +ySize()+". There are: "+robotCounter()+" of the 10 available robots.";
-		//Outputs a statement stating the x and y size of the arena and robotCounter in the arena
+	public String toString() {
+	    StringBuilder result = new StringBuilder(); //Use StringBuilder for efficient string concatenation
+	    result.append("\nThe size of the arena is: ").append(xSize()).append(" by ").append(ySize())
+	          .append(". There are: ").append(robotCounter()).append(" of the 10 available robots.\n");
+	    //Appends the size of the arena and the number of robots into the string
+	    
+	    if (robots.isEmpty()) { //Checks if the robot list is empty
+	        result.append("No robots in the arena.\n"); //Message if no robots are present
+	    } 
+	    
+	    else {
+	        result.append("Robots in the arena:\n");
+	        for (Robot robot : robots) { //Parses through all of the robots
+	            result.append(robot.toString()).append("\n"); //Append details of each robot
+	        }
+	    }
+	    
+	    return result.toString(); //Return the final string
 	}
+
 	
 }

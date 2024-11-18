@@ -86,8 +86,8 @@ public class RobotInterface {
                     int width = s.nextInt(); //Get width input
                     System.out.println("Enter new arena height > ");
                     int height = s.nextInt(); //Get height input
-                    fileHandler.createNewArena(width, height); //Create a new arena and reset
-                    myArena = new RobotArena(width, height); //Ensure myArena is updated with the new instance
+                    myArena = new RobotArena(width, height); // Create a new arena
+                    fileHandler = new File(myArena); // Update the file handler with the new arena
                     System.out.println("New arena created - everything has been reset!");
                     break;
                 
