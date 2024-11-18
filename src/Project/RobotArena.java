@@ -33,12 +33,12 @@ public class RobotArena {
 	
 	
 	public void incrementRobotCounter() {
-		robotCounter++;
+		robotCounter++; //Increments the robotCounter
 	}
 	
 	
 	public void setRobotCounter(int count) {
-		robotCounter = count;
+		robotCounter = count; //Sets the robotCounter to a new value (using count)
 	}
 	
 	

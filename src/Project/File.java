@@ -103,7 +103,7 @@ public class File {
                                 Direction direction = Direction.valueOf(robotParts[13].replace(".", "")); //Gets the direction
                                 Robot robot = new Robot(xPos, yPos, id, direction); //Sets up the robot
                                 myArena.getRobots().add(robot); //Adds the robot from the file to the arena
-                                myArena.incrementRobotCounter();
+                                myArena.incrementRobotCounter(); //Increments the robotCounter
                             } 
                             
                             else {
